@@ -15,3 +15,24 @@
 <script type="text/ecmascript-6">
 
 </script>
+
+<style lang="scss" scoped>
+  .portrait{
+    margin: 1rem auto;
+    position: relative;
+    width: 200px;
+    height: 200px;
+
+    img{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 200px;
+      border: 10px solid #5DC3B1;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+    }
+  }
+</style>

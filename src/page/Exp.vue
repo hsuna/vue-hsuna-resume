@@ -51,5 +51,90 @@
 </template>
 
 <script type="text/ecmascript-6">
-
 </script>
+
+<style lang="scss" scoped>
+#exp .content {
+  position: relative;
+  margin: 1em auto 0 auto;
+  min-width: 5em;
+  height: 13em;
+
+  .part {
+    display: none;
+    position: absolute;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+  }
+}
+.axis {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  color: #999;
+  border-bottom: 2px solid #999;
+  font-size: 0.5em;
+
+  a,
+  .line {
+    display: inline-block;
+    width: 10em;
+  }
+
+  a {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 1em;
+
+    &:after {
+      background-color: #071822;
+      position: absolute;
+      display: block;
+      margin: 0 auto;
+      width: 0.6em;
+      height: 0.6em;
+      bottom: -0.5em;
+      left: 0;
+      right: 0;
+      border: 2px solid #999;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      content: "";
+    }
+
+    &.active {
+      color: #5dc3b1;
+    }
+
+    &.active:after {
+      border-color: #5dc3b1;
+    }
+  }
+
+  .line {
+    position: absolute;
+    height: 2px;
+    bottom: -2px;
+    transition: left 0.3s;
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    background-color: #5dc3b1;
+  }
+}
+
+.mobile {
+  .content {
+    height: 15em;
+  }
+  .axis {
+    font-size: 0.6em;
+
+    a,
+    .line {
+      width: 6em;
+    }
+  }
+}
+</style>

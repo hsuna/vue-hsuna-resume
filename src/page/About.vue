@@ -17,5 +17,81 @@
 </template>
 
 <script type="text/ecmascript-6">
-
 </script>
+
+<style lang="scss" scoped>
+.content {
+  margin: 2em 0;
+  font-size: 1.3em;
+}
+.content-block {
+  display: inline-block;
+  min-width: 10em;
+  width: 15%;
+
+  &:hover {
+    color: #5dc3b1;
+  }
+
+  i {
+    font-size: 1.3em;
+    padding: 0.3em;
+  }
+}
+.info {
+  position: relative;
+  display: inline-block;
+  padding: 1em 2em;
+
+  &:before,
+  &:after {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    content: "";
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid #5dc3b1;
+    border-left: 2px solid #5dc3b1;
+  }
+
+  &:after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid #5dc3b1;
+    border-right: 2px solid #5dc3b1;
+  }
+
+  p {
+    padding: 0.2em 0;
+  }
+}
+
+.mobile {
+  .content {
+    margin-bottom: 1em;
+
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+
+  .content-block {
+    font-size: 0.75em;
+    float: left;
+    width: 49%;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 65em) {
+  .content-block {
+    width: 49.5%;
+  }
+}
+</style>
