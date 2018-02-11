@@ -1,45 +1,92 @@
 <template>
-  <div id="skill" class="pp-tableCell">
+  <div class="section-cell">
     <h1 class="title">专业技能</h1>
     <div class="content">
-      <p>框架的意义是什么？倘若有一天所有框架都没了，你还会写代码吗？</p>
+      <p>{{content}}</p>
     </div>
-    <div class="tag-panel">
-      <div class="tag expert">HTML/HTML5</div>
-      <div class="tag expert">CSS</div>
-      <div class="tag expert">Javascript</div>
-    </div>
-    <div class="tag-panel">
-      <div class="tag expert">jQuery</div>
-      <div class="tag familiar">Bootstrap</div>
-      <div class="tag familiar">Angularjs</div>
-      <div class="tag expert">Requirejs</div>
-    </div>
-    <div class="tag-panel">
-      <div class="tag expert">HTML5+</div>
-      <div class="tag expert">jQueryMobile</div>
-      <div class="tag familiar">Mui</div>
-    </div>
-    <div class="tag-panel">
-      <div class="tag expert">Canvas</div>
-      <div class="tag expert">CreateJs</div>
-      <div class="tag familiar">Egret</div>
-    </div>
-    <div class="tag-panel">
-      <div class="tag familiar">Node.js</div>
-      <div class="tag familiar">Koa2</div>
-      <div class="tag common">PHP</div>
-    </div>
-    <div class="tag-panel">
-      <div class="tag expert">PhotoShop</div>
-      <div class="tag expert">Flash</div>
+    <div v-for="(skills, index) in skillList" class="tag-panel" v-bind:key="index">
+      <div v-for="skill in skills" v-bind:key="skill.text" class="tag" :class="skill.degree">
+        {{skill.text}}
+      </div>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-
+export default {
+  data() {
+    return {
+      content: "框架的意义是什么？倘若有一天所有框架都没了，你还会写代码吗？",
+      skillList: [
+        [
+          { degree: "expert", text: "HTML/HTML5" },
+          { degree: "expert", text: "CSS" },
+          { degree: "expert", text: "Javascript" }
+        ],
+        [
+          { degree: "expert", text: "jQuery" },
+          { degree: "familiar", text: "Bootstrap" },
+          { degree: "familiar", text: "Angularjs" },
+          { degree: "expert", text: "Requirejs" }
+        ],
+        [
+          { degree: "expert", text: "HTML5+" },
+          { degree: "expert", text: "jQueryMobile" },
+          { degree: "familiar", text: "Mui" }
+        ],
+        [
+          { degree: "expert", text: "Canvas" },
+          { degree: "expert", text: "CreateJs" },
+          { degree: "familiar", text: "Egret" }
+        ],
+        [
+          { degree: "familiar", text: "Node.js" },
+          { degree: "familiar", text: "Koa2" },
+          { degree: "expert", text: "PHP" }
+        ],
+        [
+          { degree: "expert", text: "PhotoShop" },
+          { degree: "expert", text: "Flash" }
+        ]
+      ]
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+.tag-panel {
+  margin: 15px auto;
+}
+
+.tag {
+  font-size: 0.9em;
+  background-color: transparent;
+  color: #5dc3b1;
+  border: 1px solid #5dc3b1;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  display: inline-block;
+  padding: 2px 8px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  opacity: 0;
+  filter: Alpha(opacity=0);
+
+  &.expert {
+    opacity: 1;
+    filter: Alpha(opacity=100);
+  }
+
+  &.familiar {
+    opacity: 0.8;
+    filter: Alpha(opacity=80);
+  }
+
+  &.common {
+    opacity: 0.4;
+    filter: Alpha(opacity=40);
+  }
+}
 </style>

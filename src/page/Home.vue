@@ -1,8 +1,12 @@
 <template>
   <div class="section-cell">
-    <div class="portrait">
-      <img src="/static/images/photo_2.jpg">
-      <img src="/static/images/photo_1.jpg">
+    <div class="portrait" @mouseover="portraitOverHandler" @mouseout="portraitOutHandler">
+      <transition name="fade">
+        <img src="/static/images/photo_1.jpg" v-show="0 == photoNum">
+      </transition>
+      <transition name="fade">
+        <img src="/static/images/photo_2.jpg" v-show="1 == photoNum">
+      </transition>
     </div>
 
     <h1 class="title">陈阳志</h1>
@@ -13,26 +17,49 @@
 </template>
 
 <script type="text/ecmascript-6">
-
+export default {
+  data() {
+    return {
+      photoNum: 0
+    };
+  },
+  methods: {
+    portraitOverHandler() {
+      this.photoNum = 1;
+    },
+    portraitOutHandler() {
+      this.photoNum = 0;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  .portrait{
-    margin: 1rem auto;
-    position: relative;
+.portrait {
+  margin: 1rem auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 200px;
     height: 200px;
-
-    img{
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 200px;
-      height: 200px;
-      border: 10px solid #5DC3B1;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      border-radius: 50%;
-    }
+    border: 10px solid #5dc3b1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
   }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+}
 </style>

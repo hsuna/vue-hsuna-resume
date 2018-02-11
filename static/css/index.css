@@ -165,48 +165,6 @@ footer {
 }
 
 
-/**class */
-
-.tag-panel {
-    margin: 15px auto
-}
-
-.tag {
-    font-size: .9em;
-    background-color: transparent;
-    color: #5DC3B1;
-    border: 1px solid #5DC3B1;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    display: inline-block;
-    padding: 2px 8px;
-    margin-right: 3px;
-    margin-bottom: 3px;
-    opacity: 0;
-    filter: Alpha(opacity=0);
-}
-
-.tag.expert {
-    opacity: 1;
-    filter: Alpha(opacity=100);
-}
-
-.tag.familiar {
-    opacity: .8;
-    filter: Alpha(opacity=80);
-}
-
-.tag.common {
-    opacity: .4;
-    filter: Alpha(opacity=40);
-}
-
-.pp-tooltip {
-    color: #999;
-}
-
-
 /**mobile */
 
 .mobile .section {
