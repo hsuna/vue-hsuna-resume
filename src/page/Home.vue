@@ -1,18 +1,16 @@
 <template>
   <div class="section-cell">
     <div class="portrait" @mouseover="portraitOverHandler" @mouseout="portraitOutHandler">
-      <transition name="fade">
-        <img src="/static/images/photo_1.jpg" v-show="0 == photoNum">
-      </transition>
+      <img src="/static/images/photo_1.jpg">
       <transition name="fade">
         <img src="/static/images/photo_2.jpg" v-show="1 == photoNum">
       </transition>
     </div>
 
     <h1 class="title">陈阳志</h1>
-    <p class="fs11">敢而慎之，勇敢不错失任何机会，谨慎不忽略一丝细节</p>
-    <h3 class="clr-comm">web前端工程师</h3>
-    <p><a href="mailto:1622427381@qq.com">1622427381@qq.com</a></p>
+    <p class="motto">敢而慎之，勇敢不错失任何机会，谨慎不忽略一丝细节</p>
+    <p class="job clr-primary">web前端工程师</p>
+    <p class="email"><a href="mailto:1622427381@qq.com">1622427381@qq.com</a></p>
   </div>
 </template>
 
@@ -61,5 +59,16 @@ export default {
   .fade-leave-to {
     opacity: 0;
   }
+}
+
+.motto,
+.email {
+  font-size: 20px;
+}
+
+.job {
+  line-height: 2;
+  font-size: 26px;
+  font-weight: bold;
 }
 </style>

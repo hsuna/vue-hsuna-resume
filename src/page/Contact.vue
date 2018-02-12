@@ -13,8 +13,11 @@
 </template>
 
 <script type="text/ecmascript-6">
-
 </script>
 
 <style lang="scss" scoped>
+.content {
+  line-height: 1.5;
+  font-size: 18px;
+}
 </style>

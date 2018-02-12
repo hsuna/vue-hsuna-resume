@@ -42,7 +42,7 @@ export default {
         [
           { degree: "familiar", text: "Node.js" },
           { degree: "familiar", text: "Koa2" },
-          { degree: "expert", text: "PHP" }
+          { degree: "common", text: "PHP" }
         ],
         [
           { degree: "expert", text: "PhotoShop" },
@@ -55,22 +55,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.content{
+  padding-bottom: 10px;
+  font-size: 18px;
+}
 .tag-panel {
-  margin: 15px auto;
+  margin: 16px auto;
 }
 
 .tag {
-  font-size: 0.9em;
-  background-color: transparent;
-  color: #5dc3b1;
+  display: inline-block;
+  padding: 4px 8px;
+  margin-right: 8px;
   border: 1px solid #5dc3b1;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  display: inline-block;
-  padding: 2px 8px;
-  margin-right: 3px;
-  margin-bottom: 3px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #5dc3b1;
   opacity: 0;
   filter: Alpha(opacity=0);
 

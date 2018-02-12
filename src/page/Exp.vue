@@ -7,8 +7,8 @@
     <div class="content">
       <transition-group name="fade">
         <div v-for="(part, index) in partList" class="part" v-bind:key="part.axis" v-show="curPart==index">
-          <h3 class="clr-comm">{{part.title}}</h3>
-          <h6>{{part.time}}</h6>
+          <p class="title clr-primary">{{part.title}}</p>
+          <p class="time">{{part.time}}</p>
           <p v-for="(text, index) in part.contents" v-bind:key="index">{{text}}</p>
         </div>
       </transition-group>
@@ -103,17 +103,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.info {
+  font-size: 18px;
+}
 .content {
   position: relative;
-  margin: 1em auto 0 auto;
-  min-width: 5em;
-  height: 13em;
+  margin: 20px auto 0;
+  min-width: 640px;
+  height: 220px;
 
   .part {
     position: absolute;
     margin: 0 auto;
     right: 0;
     left: 0;
+    line-height: 1.5;
+    font-size: 18px;
+
+    .title {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .time {
+      font-weight: bold;
+    }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
   }
 }
 .axis {
@@ -122,27 +145,27 @@ export default {
   margin: 0 auto;
   color: #999;
   border-bottom: 2px solid #999;
-  font-size: 0.5em;
+  font-size: 12px;
 
   a,
   .line {
     display: inline-block;
-    width: 10em;
+    width: 160px;
   }
 
   a {
     position: relative;
     z-index: 1;
-    padding-bottom: 1em;
+    padding-bottom: 16px;
 
     &:after {
       background-color: #071822;
       position: absolute;
       display: block;
       margin: 0 auto;
-      width: 0.6em;
-      height: 0.6em;
-      bottom: -0.5em;
+      width: 10px;
+      height: 10px;
+      bottom: -8px;
       left: 0;
       right: 0;
       border: 2px solid #999;
@@ -170,15 +193,6 @@ export default {
     -moz-transition: left 0.3s;
     background-color: #5dc3b1;
   }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 
 .mobile {

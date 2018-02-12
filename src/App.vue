@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="section">
-      <transition name="slide">
+      <transition :name="isMobile?'':'slide'">
         <router-view/>
       </transition>
     </div>
@@ -21,6 +21,7 @@ export default {
   name: "App",
   data() {
     return {
+      isMobile: false,
       curNav: "index",
       navList: [
         {
@@ -56,6 +57,17 @@ export default {
       ]
     };
   },
+  created() {
+    const ua = navigator.userAgent;
+    const ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+      isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+      isAndroid = ua.match(/(Android)\s+([\d.]+)/);
+    this.isMobile = isIphone || isAndroid;
+
+    if (this.isMobile) {//判断是否移动端
+      document.body.classList.add("mobile");//如果是移动端，则添加样式
+    }
+  },
   watch: {
     $route(to, from) {
       this.curNav = to.name;
@@ -68,7 +80,7 @@ export default {
 .section {
   display: table;
   position: absolute;
-  min-width: 40rem;
+  min-width: 1024px;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -78,7 +90,7 @@ export default {
     display: table-cell;
     width: 100%;
     height: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 2%;
     vertical-align: middle;
 
     &.slide-enter-active {

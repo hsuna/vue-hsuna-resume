@@ -21,12 +21,12 @@
 
 <style lang="scss" scoped>
 .content {
-  margin: 2em 0;
-  font-size: 1.3em;
+  margin: 50px 0;
+  font-size: 24px;
 }
 .content-block {
   display: inline-block;
-  min-width: 10em;
+  min-width: 200px;
   width: 15%;
 
   &:hover {
@@ -34,20 +34,21 @@
   }
 
   i {
-    font-size: 1.3em;
-    padding: 0.3em;
+    padding-right: 5px;
+    font-size: 30px;
   }
 }
 .info {
   position: relative;
   display: inline-block;
-  padding: 1em 2em;
+  padding: 18px 35px;
+  font-size: 18px;
 
   &:before,
   &:after {
     position: absolute;
-    width: 2em;
-    height: 2em;
+    width: 35px;
+    height: 35px;
     content: "";
   }
 
@@ -66,7 +67,7 @@
   }
 
   p {
-    padding: 0.2em 0;
+    padding: 8px 0;
   }
 }
 
