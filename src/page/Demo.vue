@@ -9,7 +9,7 @@
       </a>
       <a href="http://weixin.niurenqushi.com/wxshow/yuexiujinkong.html" target="_blank" class="content-block">
         <i title="mobile">M</i>
-        <p class="title"h4>越秀金控</p>
+        <p class="title">越秀金控</p>
         <p>基于移动微信端的金融产品</p>
       </a>
       <a href="http://www.9377.com/platform/wx_game_bridge/" target="_blank" class="content-block">

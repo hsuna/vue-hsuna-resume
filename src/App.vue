@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <div class="section">
+  <div id="app" @wheel.prevent="onScrollBarWheel">
+    <div class="section" @click="onNextPageHandler">
       <transition :name="isMobile?'':'slide'">
         <router-view/>
       </transition>
@@ -64,13 +64,48 @@ export default {
       isAndroid = ua.match(/(Android)\s+([\d.]+)/);
     this.isMobile = isIphone || isAndroid;
 
-    if (this.isMobile) {//判断是否移动端
-      document.body.classList.add("mobile");//如果是移动端，则添加样式
+    if (this.isMobile) {
+      //判断是否移动端
+      document.body.classList.add("mobile"); //如果是移动端，则添加样式
     }
   },
   watch: {
     $route(to, from) {
       this.curNav = to.name;
+    }
+  },
+  methods: {
+    onScrollBarWheel(evt) {
+      if (evt.wheelDeltaY > 0 || evt.deltaY < 0) {
+        this.onPrevPageHandler();
+      } else if (evt.wheelDeltaY < 0 || evt.deltaY > 0) {
+        this.onNextPageHandler();
+      }
+    },
+    onPrevPageHandler() {
+      var index = this.getCurPageIndex();
+      //index = index - 1 >= 0 ? index - 1 : 0;
+      if (index - 1 >= 0) {
+        this.$router.replace({
+          path: this.navList[index - 1].id
+        });
+      }
+    },
+    onNextPageHandler() {
+      var index = this.getCurPageIndex();
+      index = index + 1 < this.navList.length ? index + 1 : 0;
+      this.$router.replace({
+        path: this.navList[index].id
+      });
+    },
+    getCurPageIndex() {
+      let index = 0;
+      this.navList.forEach((item, i) => {
+        if (item.id == this.curNav) {
+          return (index = i);
+        }
+      });
+      return index;
     }
   }
 };
@@ -80,7 +115,7 @@ export default {
 .section {
   display: table;
   position: absolute;
-  min-width: 1024px;
+  min-width: 800px;
   width: 100%;
   height: 100%;
   text-align: center;
