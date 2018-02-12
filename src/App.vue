@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="section">
-      <router-view/>
+      <transition name="slide">
+        <router-view/>
+      </transition>
     </div>
     <div class="section-nav">
       <ul>
@@ -66,7 +68,7 @@ export default {
 .section {
   display: table;
   position: absolute;
-  min-width: 40em;
+  min-width: 40rem;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -76,14 +78,22 @@ export default {
     display: table-cell;
     width: 100%;
     height: 100%;
+    padding-bottom: 100px;
     vertical-align: middle;
-  }
 
-  h1 {
-    margin-top: -0.2em;
-    margin-bottom: 0.1em;
-    color: #5dc3b1;
-    text-shadow: 1px 2px #071822, 3px 4px #345c74;
+    &.slide-enter-active {
+      -webkit-transition: -webkit-transform 0.8s;
+      transition: transform 0.8s;
+    }
+
+    &.slide-enter {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+
+    &.slide-leave-active {
+      display: none;
+    }
   }
 }
 
@@ -92,8 +102,9 @@ export default {
   z-index: 100;
   top: 50%;
   right: 17px;
-  margin-top: -63.5px;
   opacity: 1;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 
   li {
     display: block;

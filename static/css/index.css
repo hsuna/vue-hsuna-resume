@@ -164,6 +164,13 @@ footer {
     bottom: 0;
 }
 
+.section-cell>h1 {
+    margin-top: -0.2rem;
+    margin-bottom: 0.1rem;
+    color: #5dc3b1;
+    text-shadow: 1px 2px #071822, 3px 4px #345c74;
+}
+
 
 /**mobile */
 
