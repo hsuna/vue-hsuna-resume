@@ -13,7 +13,7 @@
         </li>
       </ul>
     </div>
-    <div class="section-tips">
+    <div class="section-tips" v-show="curNav != 'contact'">
       <p>上下滚动鼠标翻页</p>
       <div class="arrow"><i class="hr hr-arrow"></i></div>
     </div>

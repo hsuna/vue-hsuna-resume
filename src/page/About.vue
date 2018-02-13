@@ -46,6 +46,8 @@
 }
 .info {
   position: relative;
+  display: inline-block;
+  max-width: 640px;
   margin: 10px;
   padding: 18px 35px;
   font-size: 18px;
