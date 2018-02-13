@@ -2,29 +2,31 @@
   <div class="section-cell">
     <h1 class="title">项目展示</h1>
     <div class="content">
-      <a href="http://ess.hoolinks.com" target="_blank" class="content-block">
-        <i title="pc/web">P</i>
+      <a href="https://www.hoolinks.com" target="_blank" class="content-block">
+        <i title="pc/web">W</i>
         <p class="title">昊链科技</p>
-        <p class="info">基于PC端货代服务平台</p>
+        <p class="info">一站式物流供应链服务平台</p>
       </a>
-      <a href="http://weixin.niurenqushi.com/wxshow/yuexiujinkong.html" target="_blank" class="content-block">
+      <a href="https://www.hoolinks.com/cloudHub/kklinks.html" target="_blank" class="content-block">
         <i title="mobile">M</i>
-        <p class="title">越秀金控</p>
-        <p class="info">基于移动微信端的金融产品</p>
+        <p class="title">链英汇</p>
+        <p class="info">关务供应链咨询社区网站</p>
+      </a>
+      <a href="http://www.app111.com/info/1131542853/" target="_blank" class="content-block">
+        <i title="app">A</i>
+        <p class="title">海印金服</p>
+        <p class="info">p2p金融网贷App</p>
       </a>
       <a href="http://www.9377.com/platform/wx_game_bridge/" target="_blank" class="content-block">
         <i title="canvas">C</i>
         <p class="title">搭桥技术</p>
-        <p class="info">基于canvas的微信小游戏</p>
-      </a>
-      <a href="http://www.app111.com/info/1131542853/" target="_blank" class="content-block">
-        <i title="app">C</i>
-        <p class="title">海印金服</p>
-        <p class="info">基于Html5+的金融网贷App</p>
+        <p class="info">活动专题微信小游戏</p>
       </a>
     </div>
     <div class="more">
-      <p><a></a></p>
+      <p><a href="https://github.com/hsuna/">
+        <i class="hr hr-github"></i>查看更多
+      </a></p>
     </div>
   </div>
 </template>
@@ -92,6 +94,17 @@
 .mobile {
   .content-block {
     width: 40%;
+  }
+}
+
+.more{
+  margin-top: 5px;
+  font-size: 16px;
+
+  .hr-github{
+    margin-right: 6px;
+    font-size: 20px;
+    vertical-align:text-bottom;
   }
 }
 

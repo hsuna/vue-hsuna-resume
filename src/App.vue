@@ -25,6 +25,7 @@ export default {
   name: "App",
   data() {
     return {
+      isWheelLock: -1,
       isMobile: false,
       curNav: "index",
       navList: [
@@ -80,10 +81,16 @@ export default {
   },
   methods: {
     onScrollBarWheel(evt) {
-      if (evt.wheelDeltaY > 0 || evt.deltaY < 0) {
-        this.onPrevPageHandler();
-      } else if (evt.wheelDeltaY < 0 || evt.deltaY > 0) {
-        this.onNextPageHandler();
+      if (-1 == this.isWheelLock) {
+        if (evt.wheelDeltaY > 0 || evt.deltaY < 0) {
+          this.onPrevPageHandler();
+        } else if (evt.wheelDeltaY < 0 || evt.deltaY > 0) {
+          this.onNextPageHandler();
+        }
+        this.isWheelLock = setTimeout(() => {
+          clearTimeout(this.isWheelLock);
+          this.isWheelLock = -1;
+        }, 1000);
       }
     },
     onPrevPageHandler() {
