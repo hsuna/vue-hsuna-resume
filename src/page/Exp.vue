@@ -13,7 +13,7 @@
         </div>
       </transition-group>
     </div>
-    <div class="axis" @mouseout="axisMouseOutHandler">
+    <div class="axis clearfix" @mouseout="axisMouseOutHandler">
       <a v-for="(part, index) in partList" class="part" v-bind:key="part.axis" @mouseover="axisMouseOverHandler(index)" :class="curPart==index?'active':''">
         {{part.axis}}
       </a>
@@ -109,8 +109,7 @@ export default {
 .content {
   position: relative;
   margin: 20px auto 0;
-  min-width: 640px;
-  height: 220px;
+  min-height: 220px;
 
   .part {
     position: absolute;
@@ -141,7 +140,7 @@ export default {
 }
 .axis {
   position: relative;
-  display: inline-block;
+  max-width: 640px;
   margin: 0 auto;
   color: #999;
   border-bottom: 2px solid #999;
@@ -149,11 +148,12 @@ export default {
 
   a,
   .line {
-    display: inline-block;
-    width: 160px;
+    
+    width: 25%;
   }
 
   a {
+    float: left;
     position: relative;
     z-index: 1;
     padding-bottom: 16px;
@@ -169,8 +169,6 @@ export default {
       left: 0;
       right: 0;
       border: 2px solid #999;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
       border-radius: 50%;
       content: "";
     }

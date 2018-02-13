@@ -69,8 +69,6 @@ export default {
   margin-right: 8px;
   border: 1px solid #5dc3b1;
   border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   font-size: 16px;
   background-color: transparent;
   color: #5dc3b1;

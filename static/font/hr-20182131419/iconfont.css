@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "HsunaResume";
+    src: url('iconfont.eot?t=1518502610249');
+    /* IE9*/
+    src: url('iconfont.eot?t=1518502610249#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'), url('iconfont.ttf?t=1518502610249') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg?t=1518502610249#HsunaResume') format('svg');
+    /* iOS 4.1- */
+}
+
+.hr {
+    font-family: "HsunaResume" !important;
+    font-size: inherit;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.hr-locationfill:before {
+    content: "\e650";
+}
+
+.hr-location:before {
+    content: "\e651";
+}
+
+.hr-timefill:before {
+    content: "\e65e";
+}
+
+.hr-time:before {
+    content: "\e65f";
+}
+
+.hr-my:before {
+    content: "\e78b";
+}
+
+.hr-myfill:before {
+    content: "\e78c";
+}
+
+.hr-arrow:before {
+    content: "\e625";
+}
+
+.hr-medalfill:before {
+    content: "\e7c1";
+}
+
+.hr-medal:before {
+    content: "\e7c2";
+}

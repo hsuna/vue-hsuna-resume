@@ -1,6 +1,6 @@
 <template>
   <div id="app" @wheel.prevent="onScrollBarWheel">
-    <div class="section" @click="onNextPageHandler">
+    <div class="section">
       <transition :name="isMobile?'':'slide'">
         <router-view/>
       </transition>
@@ -12,6 +12,10 @@
           <div class="tooltip">{{nav.label}}</div>
         </li>
       </ul>
+    </div>
+    <div class="section-tips">
+      <p>上下滚动鼠标翻页</p>
+      <div class="arrow"><i class="hr hr-arrow"></i></div>
     </div>
   </div>
 </template>
@@ -115,7 +119,7 @@ export default {
 .section {
   display: table;
   position: absolute;
-  min-width: 800px;
+  min-height: 540px;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -129,12 +133,10 @@ export default {
     vertical-align: middle;
 
     &.slide-enter-active {
-      -webkit-transition: -webkit-transform 0.8s;
       transition: transform 0.8s;
     }
 
     &.slide-enter {
-      -webkit-transform: translateY(-100%);
       transform: translateY(-100%);
     }
 
@@ -150,7 +152,6 @@ export default {
   top: 50%;
   right: 17px;
   opacity: 1;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 
   li {
@@ -209,6 +210,66 @@ export default {
       border-color: rgb(153, 153, 153);
       border-radius: 50%;
     }
+  }
+}
+
+.section-tips {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+
+  .arrow {
+    font-size: 24px;
+    animation: arrowMovie 1s linear infinite;
+
+    @keyframes arrowMovie {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(4px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .section-nav {
+    top: auto;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+
+      .tooltip {
+        top: -20px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+  }
+  .section-tips {
+    bottom: 10px;
+
+    .arrow {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-height: 540px) {
+  .section-nav,
+  .section-tips {
+    display: none;
   }
 }
 </style>

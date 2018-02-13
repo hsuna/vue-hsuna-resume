@@ -20,15 +20,6 @@ body {
     color: #999;
 }
 
-
-/* 移动端 */
-
-html.mobile {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    font-size: 3.125vw;
-}
-
 a {
     color: #999;
     text-decoration: none;
@@ -37,86 +28,6 @@ a {
 
 a:hover {
     color: #5DC3B1;
-}
-
-@font-face {
-    font-family: "iconfont";
-    src: url('../font/iconfont.eot?t=1484407605905');
-    /* IE9*/
-    src: url('../font/iconfont.eot?t=1484407605905#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('../font/iconfont.woff?t=1484407605905') format('woff'), /* chrome, firefox */
-    url('../font/iconfont.ttf?t=1484407605905') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-    url('../font/iconfont.svg?t=1484407605905#iconfont') format('svg');
-    /* iOS 4.1- */
-}
-
-.iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-locationfill:before {
-    content: "\e650";
-}
-
-.icon-location:before {
-    content: "\e651";
-}
-
-.icon-timefill:before {
-    content: "\e65e";
-}
-
-.icon-time:before {
-    content: "\e65f";
-}
-
-.icon-my:before {
-    content: "\e78b";
-}
-
-.icon-myfill:before {
-    content: "\e78c";
-}
-
-.icon-medalfill:before {
-    content: "\e7c1";
-}
-
-.icon-medal:before {
-    content: "\e7c2";
-}
-
-.clr-primary,
-.clr-comm {
-    color: #5DC3B1;
-}
-
-.clr-000 {
-    color: #000;
-}
-
-.clr-333 {
-    color: #333;
-}
-
-.clr-666 {
-    color: #666;
-}
-
-.clr-999 {
-    color: #999;
-}
-
-.clr-ccc {
-    color: #ccc;
-}
-
-.clr-eee {
-    color: #eee;
 }
 
 header,
@@ -134,6 +45,16 @@ footer {
     bottom: 0;
 }
 
+.clr-primary {
+    color: #5DC3B1;
+}
+
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
 .section-cell>h1 {
     margin-top: 2px;
     margin-bottom: 30px;
@@ -143,7 +64,13 @@ footer {
 }
 
 
-/**mobile */
+/* mobile-移动端 */
+
+html.mobile {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 3.125vw;
+}
 
 .mobile .section {
     padding: 4rem 1rem;

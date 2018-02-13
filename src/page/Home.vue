@@ -46,8 +46,6 @@ export default {
     width: 200px;
     height: 200px;
     border: 10px solid #5dc3b1;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
     border-radius: 50%;
   }
 

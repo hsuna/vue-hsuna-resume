@@ -5,22 +5,22 @@
       <a href="http://ess.hoolinks.com" target="_blank" class="content-block">
         <i title="pc/web">P</i>
         <p class="title">昊链科技</p>
-        <p>基于PC端货代服务平台</p>
+        <p class="info">基于PC端货代服务平台</p>
       </a>
       <a href="http://weixin.niurenqushi.com/wxshow/yuexiujinkong.html" target="_blank" class="content-block">
         <i title="mobile">M</i>
         <p class="title">越秀金控</p>
-        <p>基于移动微信端的金融产品</p>
+        <p class="info">基于移动微信端的金融产品</p>
       </a>
       <a href="http://www.9377.com/platform/wx_game_bridge/" target="_blank" class="content-block">
         <i title="canvas">C</i>
         <p class="title">搭桥技术</p>
-        <p>基于canvas的微信小游戏</p>
+        <p class="info">基于canvas的微信小游戏</p>
       </a>
       <a href="http://www.app111.com/info/1131542853/" target="_blank" class="content-block">
         <i title="app">C</i>
         <p class="title">海印金服</p>
-        <p>基于Html5+的金融网贷App</p>
+        <p class="info">基于Html5+的金融网贷App</p>
       </a>
     </div>
     <div class="more">
@@ -95,18 +95,27 @@
   }
 }
 
-@media screen and (max-width: 65em) {
+@media screen and (max-width: 600px) {
+  .content-block{
+    height: 200px;
+
+    i{
+      width: 60px;
+      line-height: 60px;
+    }
+
+    .info{
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 960px) {
   .content-block {
     width: 20%;
     margin: 2%;
-  }
-}
-@media screen and (max-width: 55em) {
-  .content-block {
-    height: 10em;
 
-    p {
-      display: none;
+    i {
+      margin-top: 25px;
     }
   }
 }
