@@ -97,27 +97,27 @@
   }
 }
 
-.more{
+.more {
   margin-top: 5px;
   font-size: 16px;
 
-  .hr-github{
+  .hr-github {
     margin-right: 6px;
     font-size: 20px;
-    vertical-align:text-bottom;
   }
 }
 
+/**响应式 */
 @media screen and (max-width: 600px) {
-  .content-block{
+  .content-block {
     height: 200px;
 
-    i{
+    i {
       width: 60px;
       line-height: 60px;
     }
 
-    .info{
+    .info {
       display: none;
     }
   }
@@ -129,6 +129,32 @@
 
     i {
       margin-top: 25px;
+    }
+  }
+}
+
+/**移动端 */
+.mobile {
+  .content-block {
+    width: 45%;
+
+    p {
+      margin: 0.5rem;
+    }
+
+    i {
+      margin-top: 1.8rem;
+      margin-bottom: 0;
+    }
+
+    .title {
+      margin-top: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .info {
+      display: block;
+      font-size: 1.8rem;
     }
   }
 }

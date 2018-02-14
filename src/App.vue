@@ -1,7 +1,7 @@
 <template>
-  <div id="app" @wheel.prevent="onScrollBarWheel">
+  <div id="app" @touchstart="onTouchStartHandler" @touchend="onTouchEndHandler" @wheel.prevent="onScrollBarWheel">
     <div class="section">
-      <transition :name="isMobile?'':'slide'">
+      <transition name="slide">
         <router-view/>
       </transition>
     </div>
@@ -14,8 +14,12 @@
       </ul>
     </div>
     <div class="section-tips" v-show="curNav != 'contact'">
-      <p>上下滚动鼠标翻页</p>
+      <p class="text">上下滚动鼠标翻页</p>
       <div class="arrow"><i class="hr hr-arrow"></i></div>
+    </div>
+    <div class="section-mobile">
+      <div class="top-arrow" v-show="curNav != 'index'"><i class="hr hr-arrow"></i></div>
+      <div class="bottom-arrow" v-show="curNav != 'contact'"><i class="hr hr-arrow"></i></div>
     </div>
   </div>
 </template>
@@ -25,8 +29,9 @@ export default {
   name: "App",
   data() {
     return {
-      isWheelLock: -1,
+      touchesCache: null,
       isMobile: false,
+      isPageLock: -1,
       curNav: "index",
       navList: [
         {
@@ -63,16 +68,7 @@ export default {
     };
   },
   created() {
-    const ua = navigator.userAgent;
-    const ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
-      isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
-      isAndroid = ua.match(/(Android)\s+([\d.]+)/);
-    this.isMobile = isIphone || isAndroid;
-
-    if (this.isMobile) {
-      //判断是否移动端
-      document.body.classList.add("mobile"); //如果是移动端，则添加样式
-    }
+    this.isMobile = this.navigator().mobile;
   },
   watch: {
     $route(to, from) {
@@ -80,18 +76,44 @@ export default {
     }
   },
   methods: {
+    //如果是移动端，则使用Touch模式
+    onTouchStartHandler(evt) {
+      if (!this.isMobile) return;
+      this.touchesCache = evt.touches[0];
+    },
+    onTouchEndHandler(evt) {
+      if (!this.isMobile || !this.touchesCache) return;
+
+      if (-1 == this.isPageLock && evt.changedTouches[0]) {
+        let offsetY = evt.changedTouches[0].clientY - this.touchesCache.clientY;
+        if (offsetY < -100) {
+          this.onPrevPageHandler();
+          this.disablePageChange();
+        } else if (offsetY > 100) {
+          this.onNextPageHandler();
+          this.disablePageChange();
+        }
+      }
+      this.touchesCache = null;
+    },
+    //如果是PC端，则使用mousewheel模式
     onScrollBarWheel(evt) {
-      if (-1 == this.isWheelLock) {
+      if (this.isMobile) return;
+      if (-1 == this.isPageLock) {
         if (evt.wheelDeltaY > 0 || evt.deltaY < 0) {
           this.onPrevPageHandler();
+          this.disablePageChange();
         } else if (evt.wheelDeltaY < 0 || evt.deltaY > 0) {
           this.onNextPageHandler();
+          this.disablePageChange();
         }
-        this.isWheelLock = setTimeout(() => {
-          clearTimeout(this.isWheelLock);
-          this.isWheelLock = -1;
-        }, 1000);
       }
+    },
+    disablePageChange() {
+      this.isPageLock = setTimeout(() => {
+        clearTimeout(this.isPageLock);
+        this.isPageLock = -1;
+      }, 1000);
     },
     onPrevPageHandler() {
       var index = this.getCurPageIndex();
@@ -104,10 +126,12 @@ export default {
     },
     onNextPageHandler() {
       var index = this.getCurPageIndex();
-      index = index + 1 < this.navList.length ? index + 1 : 0;
-      this.$router.replace({
-        path: this.navList[index].id
-      });
+      //index = index + 1 < this.navList.length ? index + 1 : 0;
+      if (index + 1 < this.navList.length) {
+        this.$router.replace({
+          path: this.navList[index + 1].id
+        });
+      }
     },
     getCurPageIndex() {
       let index = 0;
@@ -122,7 +146,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .section {
   display: table;
   position: absolute;
@@ -138,6 +162,14 @@ export default {
     height: 100%;
     padding-bottom: 2%;
     vertical-align: middle;
+
+    > h1 {
+      margin-top: 2px;
+      margin-bottom: 30px;
+      font-size: 64px;
+      color: #5dc3b1;
+      text-shadow: 1px 2px #071822, 3px 4px #345c74;
+    }
 
     &.slide-enter-active {
       transition: transform 0.8s;
@@ -264,11 +296,57 @@ export default {
       }
     }
   }
+
   .section-tips {
     bottom: 10px;
 
     .arrow {
       display: none;
+    }
+  }
+
+  .section-mobile {
+    .top-arrow,
+    .bottom-arrow {
+      position: fixed;
+      left: 0;
+      right: 0;
+      font-size: 1.6rem;
+      text-align: center;
+    }
+
+    .top-arrow {
+      top: 1rem;
+      animation: arrowUpMovie 1s linear infinite;
+    }
+
+    .bottom-arrow {
+      bottom: 1rem;
+      animation: arrowDownMovie 1s linear infinite;
+    }
+
+    @keyframes arrowUpMovie {
+      0% {
+        transform: translateY(0) rotate(180deg);
+      }
+      50% {
+        transform: translateY(-0.4rem) rotate(180deg);
+      }
+      100% {
+        transform: translateY(0) rotate(180deg);
+      }
+    }
+
+    @keyframes arrowDownMovie {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(0.4rem);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
   }
 }
@@ -277,6 +355,24 @@ export default {
   .section-nav,
   .section-tips {
     display: none;
+  }
+}
+
+.mobile {
+  .section-cell {
+    padding: 2rem;
+
+    > h1 {
+      font-size: 5rem;
+    }
+  }
+
+  .section-nav,
+  .section-tips {
+    display: none;
+  }
+  .section-mobile {
+    display: fixed;
   }
 }
 </style>

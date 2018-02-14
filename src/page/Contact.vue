@@ -6,7 +6,7 @@
       <p>但不能没有从1到n的决心</p>
       <p>人生需要不断的尝试，编程的世界里也一样</p>
       <p>敢而慎之</p>
-      <p>&nbsp;</p>
+      <div>&nbsp;</div>
       <p class="clr-primary">E-mail: <a href="mailto:me@hsuna.com">me@hsuna.com</a></p>
       <p class="icon-group">
         <a title="github" href="https://github.com/hsuna/" target="_blank"><i class="hr hr-github"></i></a>
@@ -22,10 +22,13 @@
 
 <style lang="scss" scoped>
 .content {
-  line-height: 1.5;
   font-size: 18px;
+
+  p {
+    line-height: 1.8;
+  }
 }
-.icon-group{
+.icon-group {
   font-size: 32px;
 }
 </style>

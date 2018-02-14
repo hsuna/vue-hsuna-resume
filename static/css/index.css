@@ -30,6 +30,10 @@ a:hover {
     color: #5DC3B1;
 }
 
+p {
+    line-height: 1.5;
+}
+
 header,
 footer {
     position: fixed;
@@ -55,38 +59,11 @@ footer {
     clear: both;
 }
 
-.section-cell>h1 {
-    margin-top: 2px;
-    margin-bottom: 30px;
-    font-size: 64px;
-    color: #5dc3b1;
-    text-shadow: 1px 2px #071822, 3px 4px #345c74;
-}
-
 
 /* mobile-移动端 */
 
 html.mobile {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    font-size: 3.125vw;
-}
-
-.mobile .section {
-    padding: 4rem 1rem;
-    background: transparent;
-    min-width: 0;
-}
-
-.mobile .section>div {
-    display: block;
-}
-
-.mobile .section h1 {
-    font-size: 2.5rem;
-    text-shadow: none;
-}
-
-.mobile #pagepiling {
-    background: url(../images/bg.jpg) repeat;
+    font-size: 2.667vw;
 }

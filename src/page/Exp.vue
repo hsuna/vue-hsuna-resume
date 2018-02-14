@@ -1,17 +1,19 @@
 <template>
-  <div class="section-cell">
+  <div class="section-cell" @touchstart="onTouchStartHandler" @touchend="onTouchEndHandler">
     <h1 class="title">工作经历</h1>
     <div class="info">
       <p>一步一个脚印，即使时间再短，也会有所收获，生活总是充满故事</p>
     </div>
     <div class="content">
-      <transition-group name="fade">
-        <div v-for="(part, index) in partList" class="part" v-bind:key="part.axis" v-show="curPart==index">
-          <p class="title clr-primary">{{part.title}}</p>
-          <p class="time">{{part.time}}</p>
-          <p v-for="(text, index) in part.contents" v-bind:key="index">{{text}}</p>
-        </div>
-      </transition-group>
+      <div class="content-inner" :style="isMobile?'transform: translateX(-'+curPart*100+'%)':''">
+        <transition-group name="fade">
+          <div v-for="(part, index) in partList" class="part" v-bind:key="part.axis" v-show="isMobile || curPart==index" :style="isMobile?'left:'+index*100+'%;':''">
+            <p class="title clr-primary">{{part.title}}</p>
+            <p class="time">{{part.time}}</p>
+            <p v-for="(text, index) in part.contents" v-bind:key="index">{{text}}</p>
+          </div>
+        </transition-group>
+      </div>
     </div>
     <div class="axis clearfix" @mouseout="axisMouseOutHandler">
       <a v-for="(part, index) in partList" class="part" v-bind:key="part.axis" @mouseover="axisMouseOverHandler(index)" :class="curPart==index?'active':''" :style="'width:'+(100/partList.length)+'%;'">
@@ -26,6 +28,8 @@
 export default {
   data() {
     return {
+      touchesCache: null,
+      isMobile: false,
       timeId: -1,
       curPart: 0,
       partList: [
@@ -66,6 +70,7 @@ export default {
     };
   },
   created() {
+    this.isMobile = this.navigator().mobile;
     this.curPart = this.partList.length - 1;
     this.axisMouseOutHandler();
   },
@@ -76,6 +81,8 @@ export default {
       this.curPart = pIndex;
     },
     axisMouseOutHandler() {
+      if (this.isMobile) return; //如果是移动端则不自动播放
+
       if (-1 == this.timeId) {
         this.timeId = setInterval(() => {
           if (this.curPart + 1 < this.partList.length) {
@@ -85,6 +92,24 @@ export default {
           }
         }, 5000);
       }
+    },
+    //如果是移动端，则使用Touch模式
+    onTouchStartHandler(evt) {
+      if (!this.isMobile) return;
+      this.touchesCache = evt.touches[0];
+    },
+    onTouchEndHandler(evt) {
+      if (!this.isMobile || !this.touchesCache) return;
+
+      if (evt.changedTouches[0]) {
+        let offsetX = evt.changedTouches[0].clientX - this.touchesCache.clientX;
+        if (offsetX < -100) {
+          if (this.curPart < this.partList.length - 1) this.curPart++;
+        } else if (offsetX > 100) {
+          if (this.curPart > 0) this.curPart--;
+        }
+      }
+      this.touchesCache = null;
     }
   }
 };
@@ -169,23 +194,32 @@ export default {
     height: 2px;
     bottom: -2px;
     transition: left 0.3s;
-    -webkit-transition: left 0.3s;
-    -moz-transition: left 0.3s;
     background-color: #5dc3b1;
   }
 }
 
 .mobile {
   .content {
-    height: 15em;
-  }
-  .axis {
-    font-size: 0.6em;
+    min-height: 28rem;
+    overflow: hidden;
 
-    a,
-    .line {
-      width: 6em;
+    .content-inner {
+      transition: transform 1s;
     }
+
+    .part {
+      width: 33.5rem;
+      margin: 0;
+      font-size: 1.7rem;
+
+      .title {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .axis {
+    margin: 0 4rem;
   }
 }
 </style>

@@ -25,8 +25,8 @@
   margin: 50px auto 40px;
   font-size: 24px;
 
-  &::after{
-    content: '';
+  &::after {
+    content: "";
     display: table;
     clear: both;
   }
@@ -80,10 +80,32 @@
   }
 }
 
-
+/*========= 响应式布局 =========*/
 @media screen and (max-width: 840px) {
   .content-block {
     width: 49.5%;
+  }
+}
+
+/*========= 移动端布局 =========*/
+.mobile {
+  .content {
+    margin: 4rem auto 2rem;
+    font-size: 2.0rem;
+  }
+
+  .content-block {
+    margin-bottom: 1rem;
+    i {
+      padding-right: 0.6rem;
+      font-size: 2.2rem;
+    }
+  }
+
+  .info {
+    margin: 0;
+    padding: 2rem 1rem;
+    font-size: 1.8rem;
   }
 }
 </style>
