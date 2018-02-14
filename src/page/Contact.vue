@@ -5,9 +5,9 @@
       <p>或许我们没有从0到1的灵感</p>
       <p>但不能没有从1到n的决心</p>
       <p>人生需要不断的尝试，编程的世界里也一样</p>
-      <p>量变终归会质变</p>
+      <p>敢而慎之</p>
       <p>&nbsp;</p>
-      <p class="clr-primary">Email: <a href="mailto:1622427381@qq.com" target="_blank">1622427381@qq.com</a></p>
+      <p class="clr-primary">E-mail: <a href="mailto:me@hsuna.com">me@hsuna.com</a></p>
       <p class="icon-group">
         <a title="github" href="https://github.com/hsuna/" target="_blank"><i class="hr hr-github"></i></a>
         <a title="linkedin" href="https://www.linkedin.com/in/hsuna" target="_blank"><i class="hr hr-linkedin"></i></a>

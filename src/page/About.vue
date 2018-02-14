@@ -3,15 +3,15 @@
     <h1 class="title">关于我</h1>
     <div class="content">
       <div class="content-block"><i class="hr hr-medal"></i>学历 / 大专</div>
-      <div class="content-block"><i class="hr hr-time"></i>年龄 / 26岁</div>
+      <div class="content-block"><i class="hr hr-time"></i>年龄 / {{2018-1991}}岁</div>
       <div class="content-block"><i class="hr hr-location"></i>坐标 / 广州</div>
       <div class="content-block"><i class="hr hr-my"></i>状态 / 在职</div>
     </div>
     <div class="info">
-      <p>2013年毕业于广东交通职业技术学院，现就职于广州市昊链信息科技股份有限公司</p>
-      <p>比起使用更喜欢研究，看别人的代码，悟别人的思想，只要有思想的代码都是可让人学习的代码</p>
-      <p>一个先学js，后学css的F2E  →_→</p>
-      <p>为什么学js，因为...closure&prototype</p>
+      <p>2013年毕业于广东交通职业技术学院</p>
+      <p>4年互联网经验，3年web前端开发经验</p>
+      <p>强烈的自我驱动力，代码强迫症患者</p>
+      <p>一个先学es，后学css的F2E  →_→</p>
     </div>
   </div>
 </template>
@@ -21,7 +21,8 @@
 
 <style lang="scss" scoped>
 .content {
-  margin: 50px 0 40px;
+  max-width: 960px;
+  margin: 50px auto 40px;
   font-size: 24px;
 
   &::after{

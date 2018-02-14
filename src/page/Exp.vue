@@ -14,10 +14,10 @@
       </transition-group>
     </div>
     <div class="axis clearfix" @mouseout="axisMouseOutHandler">
-      <a v-for="(part, index) in partList" class="part" v-bind:key="part.axis" @mouseover="axisMouseOverHandler(index)" :class="curPart==index?'active':''">
+      <a v-for="(part, index) in partList" class="part" v-bind:key="part.axis" @mouseover="axisMouseOverHandler(index)" :class="curPart==index?'active':''" :style="'width:'+(100/partList.length)+'%;'">
         {{part.axis}}
       </a>
-      <span class="line" :style="'left:'+(curPart*100/partList.length)+'%'"></span>
+      <span class="line" :style="'width:'+(100/partList.length)+'%; left:'+(curPart*100/partList.length)+'%;'"></span>
     </div>
   </div>
 </template>
@@ -133,11 +133,6 @@ export default {
   color: #999;
   border-bottom: 2px solid #999;
   font-size: 12px;
-
-  a,
-  .line {
-    width: 33.3%;
-  }
 
   a {
     float: left;

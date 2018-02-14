@@ -5,7 +5,7 @@
       <p>{{content}}</p>
     </div>
     <div v-for="(skills, index) in skillList" class="tag-panel" v-bind:key="index">
-      <div v-for="skill in skills" v-bind:key="skill.text" class="tag" :class="skill.degree">
+      <div v-for="skill in skills" v-bind:key="skill.text" class="tag" :class="skill.degree" :title="skill.degree">
         {{skill.text}}
       </div>
     </div>
@@ -19,34 +19,29 @@ export default {
       content: "框架的意义是什么？倘若有一天所有框架都没了，你还会写代码吗？",
       skillList: [
         [
-          { degree: "expert", text: "HTML/HTML5" },
-          { degree: "expert", text: "CSS" },
-          { degree: "expert", text: "Javascript" }
+          { degree: "expert", text: "html/html5" },
+          { degree: "expert", text: "javascript" },
+          { degree: "expert", text: "es6" }
         ],
         [
-          { degree: "expert", text: "jQuery" },
-          { degree: "familiar", text: "Bootstrap" },
-          { degree: "familiar", text: "Angularjs" },
-          { degree: "expert", text: "Requirejs" }
+          { degree: "expert", text: "css/css3" },
+          { degree: "expert", text: "sass" },
+          { degree: "familiar", text: "less" }
         ],
         [
-          { degree: "expert", text: "HTML5+" },
-          { degree: "expert", text: "jQueryMobile" },
-          { degree: "familiar", text: "Mui" }
+          { degree: "expert", text: "angular" },
+          { degree: "expert", text: "vue/vue-cli" },
+          { degree: "familiar", text: "react" }
         ],
         [
-          { degree: "expert", text: "Canvas" },
-          { degree: "expert", text: "CreateJs" },
-          { degree: "familiar", text: "Egret" }
+          { degree: "expert", text: "git" },
+          { degree: "expert", text: "webpack" },
+          { degree: "familiar", text: "gulp" }
         ],
         [
-          { degree: "familiar", text: "Node.js" },
-          { degree: "familiar", text: "Koa2" },
-          { degree: "common", text: "PHP" }
-        ],
-        [
-          { degree: "expert", text: "PhotoShop" },
-          { degree: "expert", text: "Flash" }
+          { degree: "familiar", text: "node.js" },
+          { degree: "familiar", text: "koa2" },
+          { degree: "common", text: "python" }
         ]
       ]
     };
@@ -55,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.content{
+.content {
   padding-bottom: 10px;
   font-size: 18px;
 }
@@ -73,21 +68,17 @@ export default {
   background-color: transparent;
   color: #5dc3b1;
   opacity: 0;
-  filter: Alpha(opacity=0);
 
   &.expert {
     opacity: 1;
-    filter: Alpha(opacity=100);
   }
 
   &.familiar {
-    opacity: 0.8;
-    filter: Alpha(opacity=80);
+    opacity: 0.5;
   }
 
   &.common {
-    opacity: 0.4;
-    filter: Alpha(opacity=40);
+    opacity: 0.2;
   }
 }
 </style>

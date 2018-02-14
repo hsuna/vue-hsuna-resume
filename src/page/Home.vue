@@ -10,7 +10,7 @@
     <h1 class="title">陈阳志</h1>
     <p class="motto">敢而慎之，勇敢不错失任何机会，谨慎不忽略一丝细节</p>
     <p class="job clr-primary">web前端工程师</p>
-    <p class="email"><a href="mailto:1622427381@qq.com">1622427381@qq.com</a></p>
+    <p class="email"><a href="mailto:me@hsuna.com">me@hsuna.com</a></p>
   </div>
 </template>
 
