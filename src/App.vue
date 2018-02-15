@@ -306,6 +306,8 @@ export default {
   }
 
   .section-mobile {
+    display: none;
+
     .top-arrow,
     .bottom-arrow {
       position: fixed;
@@ -351,9 +353,14 @@ export default {
   }
 }
 
+@media screen and (max-width: 960px) and (max-height: 540px) {
+  .section-nav{
+    display: none;
+  }
+}
+
 @media screen and (max-height: 540px) {
-  .section-nav,
-  .section-tips {
+    .section-tips {
     display: none;
   }
 }
@@ -372,7 +379,7 @@ export default {
     display: none;
   }
   .section-mobile {
-    display: fixed;
+    display: block;
   }
 }
 </style>

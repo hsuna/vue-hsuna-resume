@@ -68,11 +68,6 @@
   p {
     line-height: 1.5;
     margin: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
   }
 
   &:hover {

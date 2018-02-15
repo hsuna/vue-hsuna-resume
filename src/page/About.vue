@@ -48,8 +48,8 @@
 .info {
   position: relative;
   display: inline-block;
-  max-width: 640px;
-  margin: 10px;
+  max-width: 720px;
+  width: 100%;
   padding: 18px 35px;
   font-size: 18px;
 
@@ -61,18 +61,20 @@
     content: "";
   }
 
+  $linePos: 10px;
+  $lineStyle: 2px solid #5dc3b1;
   &:before {
-    top: 0;
-    left: 0;
-    border-top: 2px solid #5dc3b1;
-    border-left: 2px solid #5dc3b1;
+    top: $linePos;
+    left: $linePos;
+    border-top: $lineStyle;
+    border-left: $lineStyle;
   }
 
   &:after {
-    bottom: 0;
-    right: 0;
-    border-bottom: 2px solid #5dc3b1;
-    border-right: 2px solid #5dc3b1;
+    bottom: $linePos;
+    right: $linePos;
+    border-bottom: $lineStyle;
+    border-right: $lineStyle;
   }
 
   p {
@@ -84,6 +86,9 @@
 @media screen and (max-width: 840px) {
   .content-block {
     width: 49.5%;
+  }
+  .info{
+      max-width: 540px;
   }
 }
 
@@ -106,6 +111,17 @@
     margin: 0;
     padding: 2rem 1rem;
     font-size: 1.8rem;
+
+    $linePos: 0;
+    &:before {
+      top: $linePos;
+      left: $linePos;
+    }
+
+    &:after {
+      bottom: $linePos;
+      right: $linePos;
+    }
   }
 }
 </style>
