@@ -1,9 +1,7 @@
 # vue-hsuna-resume
 
-> Hsuna's resume
-
-> (http://resume.hsuna.com)
-
+> Hsuna's resume<br/>
+> (http://resume.hsuna.com)<br/>
 > Email：me@hsuan.com
 
 ## Build Setup
