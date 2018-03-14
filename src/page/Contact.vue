@@ -11,7 +11,7 @@
       <p class="icon-group">
         <a title="github" href="https://github.com/hsuna/" target="_blank"><i class="hr hr-github"></i></a>
         <a title="linkedin" href="https://www.linkedin.com/in/hsuna" target="_blank"><i class="hr hr-linkedin"></i></a>
-        <a title="lagou" href="https://www.lagou.com/resume/preview.html" target="_blank"><i class="hr hr-lagou"></i></a>
+        <a title="lagou" href="http://www.hsuna.com/resume/lagou.html" target="_blank"><i class="hr hr-lagou"></i></a>
       </p>
     </div>
   </div>
