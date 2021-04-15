@@ -24,7 +24,9 @@
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
+import os from 'src/utils/os';
+
 export default {
   data() {
     return {
@@ -70,7 +72,7 @@ export default {
     };
   },
   created() {
-    this.isMobile = this.navigator().mobile;
+    this.isMobile = os.mobile;
     this.curPart = this.partList.length - 1;
     this.axisMouseOutHandler();
   },

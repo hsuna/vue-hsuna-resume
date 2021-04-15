@@ -1,9 +1,7 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-Vue.use(Router)
-
-export default new Router({
+export default createRouter({
+    history: createWebHashHistory(),
     routes: [{
             path: '/',
             redirect: '/index',
@@ -11,32 +9,32 @@ export default new Router({
         {
             name: 'index',
             path: '/index',
-            component: resolve => require(['../page/Home.vue'], resolve),
+            component: () => import('../page/Home.vue'),
         },
         {
             name: 'about',
             path: '/about',
-            component: resolve => require(['../page/About.vue'], resolve),
+            component: () => import('../page/About.vue'),
         },
         {
             name: 'skill',
             path: '/skill',
-            component: resolve => require(['../page/Skill.vue'], resolve),
+            component: () => import('../page/Skill.vue'),
         },
         {
             name: 'exp',
             path: '/exp',
-            component: resolve => require(['../page/Exp.vue'], resolve),
+            component: () => import('../page/Exp.vue'),
         },
         {
             name: 'demo',
             path: '/demo',
-            component: resolve => require(['../page/Demo.vue'], resolve),
+            component: () => import('../page/Demo.vue'),
         },
         {
             name: 'contact',
             path: '/contact',
-            component: resolve => require(['../page/Contact.vue'], resolve),
+            component: () => import('../page/Contact.vue'),
         }
     ]
 })

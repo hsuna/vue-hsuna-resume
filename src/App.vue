@@ -2,7 +2,9 @@
   <div id="app" @touchstart="onTouchStartHandler" @touchend="onTouchEndHandler" @wheel.prevent="onScrollBarWheel">
     <div class="section">
       <transition name="slide">
-        <router-view/>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </transition>
     </div>
     <div class="section-nav">
@@ -25,6 +27,8 @@
 </template>
 
 <script>
+import os from 'src/utils/os';
+
 export default {
   name: "App",
   data() {
@@ -68,7 +72,7 @@ export default {
     };
   },
   created() {
-    this.isMobile = this.navigator().mobile;
+    this.isMobile = os.mobile;
   },
   watch: {
     $route(to, from) {
