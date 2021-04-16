@@ -6,19 +6,16 @@
     "private": true,
     "scripts": {
         "start": "npm run dev",
-        "dev": "vue-cli-service serve",
-        "build": "vue-cli-service build"
+        "dev": "vite",
+        "build": "vite build"
     },
     "dependencies": {
-        "vue": "^3.0.5",
-        "vue-router": "4"
+        "fullpage.js": "3.1.0",
+        "swiper": "4.5.1"
     },
     "devDependencies": {
-        "@vue/cli-service": "^4.3.0",
-        "@vue/compiler-sfc": "^3.0.5",
-        "node-sass": "^5.0.0",
-        "sass-loader": "^10.1.1",
-        "webpack": "4.3.0"
+        "less": "^4.1.1",
+        "vite": "^2.1.5"
     },
     "engines": {
         "node": ">= 6.0.0",
