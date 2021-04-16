@@ -63,6 +63,11 @@ footer {
   text-align: center;
   background: url(../img/bg.jpg) repeat;
 
+  .section {
+    width: 80%;
+    margin: 0 auto;
+  }
+
   .fp-tableCell > h1 {
     margin-top: 2px;
     margin-bottom: 30px;
@@ -141,28 +146,60 @@ footer {
 }
 
 .section-tips {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 20px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.4);
+  .top-arrow,
+  .bottom-arrow {
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+    transition: opacity 0.3s;
 
-  .arrow {
-    font-size: 24px;
-    animation: arrowMovie 1s linear infinite;
-
-    @keyframes arrowMovie {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(4px);
-      }
-      100% {
-        transform: translateY(0);
-      }
+    i {
+      display: block;
     }
+  }
+
+  .top-arrow {
+    display: none;
+    top: 20px;
+    i {
+      animation: arrowUpMovie 1s linear infinite alternate;
+    }
+  }
+
+  .bottom-arrow {
+    bottom: 20px;
+    i {
+      animation: arrowDownMovie 1s linear infinite alternate;
+    }
+    .text {
+      font-size: 16px;
+    }
+  }
+
+  @keyframes arrowUpMovie {
+    0% {
+      transform: translateY(0) rotate(180deg);
+    }
+    100% {
+      transform: translateY(-8px) rotate(180deg);
+    }
+  }
+
+  @keyframes arrowDownMovie {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(8px);
+    }
+  }
+
+  &[data-anchor="home"] .top-arrow,
+  &[data-anchor="contact"] .bottom-arrow {
+    opacity: 0;
   }
 }
 
@@ -192,11 +229,11 @@ footer {
     }
     &:before {
       opacity: 1;
-      background-image: url(../img/photo_1.jpg);
+      background-image: url(../img/photo_2.jpg);
     }
     &:after {
       opacity: 0;
-      background-image: url(../img/photo_2.jpg);
+      background-image: url(../img/photo_1.jpg);
     }
 
     &:hover {
@@ -246,6 +283,7 @@ footer {
     i {
       padding-right: 5px;
       font-size: 30px;
+      vertical-align: text-bottom;
     }
   }
   .info {
@@ -351,7 +389,8 @@ footer {
 
     .swiper-pagination-bullet {
       position: relative;
-      width: 120px;
+      max-width: 120px;
+      width: 20%;
       height: 30px;
       margin: 0;
       border-radius: 0;
@@ -489,10 +528,10 @@ footer {
   }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 980px) {
   .section-nav {
     top: auto;
-    bottom: 10px;
+    bottom: 20;
     left: 0;
     right: 0;
     text-align: center;
@@ -500,7 +539,7 @@ footer {
     li {
       display: inline-block;
 
-      .tooltip {
+      span {
         top: -20px;
         right: 50%;
         transform: translateX(50%);
@@ -509,69 +548,156 @@ footer {
   }
 
   .section-tips {
-    bottom: 10px;
-
-    .arrow {
-      display: none;
-    }
-  }
-
-  .section-mobile {
-    display: none;
-
-    .top-arrow,
-    .bottom-arrow {
-      position: fixed;
-      left: 0;
-      right: 0;
-      font-size: 1.6rem;
-      text-align: center;
-    }
-
     .top-arrow {
-      top: 1rem;
-      animation: arrowUpMovie 1s linear infinite;
+      display: block;
     }
-
     .bottom-arrow {
-      bottom: 1rem;
-      animation: arrowDownMovie 1s linear infinite;
-    }
-
-    @keyframes arrowUpMovie {
-      0% {
-        transform: translateY(0) rotate(180deg);
-      }
-      50% {
-        transform: translateY(-0.4rem) rotate(180deg);
-      }
-      100% {
-        transform: translateY(0) rotate(180deg);
-      }
-    }
-
-    @keyframes arrowDownMovie {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(0.4rem);
-      }
-      100% {
-        transform: translateY(0);
+      .text {
+        display: none;
       }
     }
   }
 }
 
-@media screen and (max-width: 960px) and (max-height: 540px) {
-  .section-nav {
-    display: none;
+@media screen and (max-width: 960px) {
+  .section[section="demo"] {
+    .content-block {
+      position: relative;
+      max-width: 540px;
+      width: 100%;
+      height: 94px;
+      margin: 12px 0;
+      text-align: left;
+
+      i {
+        position: absolute;
+        top: 14px;
+        left: 30px;
+        width: 64px;
+        height: 64px;
+        line-height: 64px;
+        margin-top: 0;
+      }
+
+      p {
+        margin-left: 120px;
+      }
+    }
   }
 }
 
-@media screen and (max-height: 540px) {
-  .section-tips {
-    display: none;
+@media screen and (max-width: 828px) {
+  .section[section="about"] {
+    .content-block {
+      width: 49.9%;
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .section-content {
+    .fp-tableCell > h1 {
+      font-size: 48px;
+    }
+  }
+
+  .section[section="home"] {
+    .portrait {
+      border-width: 8px;
+    }
+    .motto,
+    .email {
+      font-size: 18px;
+    }
+    .job {
+      font-size: 24px;
+    }
+  }
+
+  .section[section="about"] {
+    .content {
+      font-size: 20px;
+      i {
+        font-size: 28px;
+      }
+    }
+
+    .info {
+      padding: 0;
+
+      &:before {
+        top: -10px;
+        left: -10px;
+      }
+      &:after {
+        bottom: -10px;
+        right: -10px;
+      }
+    }
+  }
+
+  .section[section="skill"] {
+    .content {
+      font-size: 16px;
+    }
+    .tag {
+      font-size: 14px;
+    }
+  }
+
+  .section[section="exp"] {
+    .swiper-container {
+      .swiper-slide {
+        font-size: 16px;
+
+        .title {
+          margin-bottom: 10px;
+          font-size: 22px;
+        }
+
+        .time {
+          font-size: 14px;
+        }
+      }
+    }
+    .info {
+      line-height: 1.5;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+  }
+
+  .section[section="demo"] {
+    .content-block {
+      height: 82px;
+      margin: 10px 0;
+      border-radius: 8px;
+      font-size: 16px;
+      i {
+        top: 12px;
+        left: 16px;
+        width: 52px;
+        height: 52px;
+        line-height: 48px;
+        font-size: 24px;
+      }
+      p {
+        margin-left: 90px;
+      }
+      .title {
+        font-size: 20px;
+        margin-top: 8px;
+        margin-bottom: 4px;
+      }
+      .info {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .section[section="contact"] {
+    .content {
+      font-size: 16px;
+    }
   }
 }

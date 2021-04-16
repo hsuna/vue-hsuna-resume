@@ -12,8 +12,8 @@ function initFullpage(options) {
     // lockAnchors: true,
     anchors: ["home", "about", "skill", "exp", "demo", "contact"],
     licenseKey: "88888888-88888888-88888888-88888888",
-    autoScrolling: true,
-    scrollHorizontally: true,
+    // autoScrolling: true,
+    // scrollHorizontally: true,
     ...options,
   });
 }
@@ -32,8 +32,17 @@ function initSwiper() {
 }
 
 (function () {
+  var isInit = false;
   initFullpage({
-    afterLoad: initSwiper,
+    afterLoad: function (lastSection, curSection) {
+      if (!isInit) {
+        initSwiper();
+        isInit = true;
+      }
+      document
+        .getElementById("tips")
+        .setAttribute("data-anchor", curSection.anchor);
+    },
   });
   document.getElementById("app").style.display = "block";
 })();
