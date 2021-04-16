@@ -489,8 +489,11 @@ footer {
     }
 
     p {
-      line-height: 1.5;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       margin: 10px;
+      line-height: 1.5;
     }
 
     &:hover {
