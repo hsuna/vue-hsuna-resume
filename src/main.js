@@ -19,7 +19,7 @@ function initFullpage(options) {
 }
 
 function initSwiper() {
-  const labels = ["2013/4", "2014/8", "2016/9"];
+  const labels = ["2013/4", "2014/6", "2016/8", "2018/5"];
   let swiper = new Swiper("#swiper", {
     pagination: {
       el: ".swiper-pagination",
