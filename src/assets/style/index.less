@@ -489,9 +489,6 @@ footer {
     }
 
     p {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       margin: 10px;
       line-height: 1.5;
     }
@@ -534,6 +531,34 @@ footer {
   }
   .icon-group {
     font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .section[section="demo"] {
+    .content-block {
+      margin: 16px 28px;
+      height: 210px;
+
+      i {
+        width: 64px;
+        height: 64px;
+        line-height: 64px;
+        margin-top: 24px;
+        margin-bottom: 4px;
+      }
+
+      .info {
+        font-size: 17px;
+      }
+
+      &:nth-child(2n + 1) {
+        margin-left: 10%;
+      }
+      &:nth-child(2n) {
+        margin-right: 10%;
+      }
+    }
   }
 }
 
@@ -590,6 +615,17 @@ footer {
 
       p {
         margin-left: 120px;
+      }
+
+      .info {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &:nth-child(n) {
+        margin-left: 0;
+        margin-right: 0;
       }
     }
   }
